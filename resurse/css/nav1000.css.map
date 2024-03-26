@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,MAAM,CAAA;EACF,OAAO,EAAE,IAAI;CAChB",
+    "sources": [
+        "nav1000.scss",
+        "_variabile.scss"
+    ],
+    "names": [],
+    "file": "nav1000.css"
+}

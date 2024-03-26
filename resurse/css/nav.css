@@ -1,0 +1,135 @@
+nav {
+  height: 2.5em;
+  background-color: #35637d;
+}
+
+#hamburger {
+  display: none;
+}
+
+#ch-menu {
+  display: none;
+}
+
+.meniu {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  list-style-type: none;
+  padding: 0;
+  background-color: #35637d;
+}
+
+.meniu ul {
+  display: none;
+  opacity: 1s;
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  list-style-type: none;
+  padding: 0;
+  background-color: #35637d;
+}
+
+.meniu li {
+  border: 1px solid #192b39;
+  width: 150px;
+  height: 2.5em;
+}
+
+.meniu li div, .meniu li a {
+  list-style-type: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  line-height: 2.5em;
+  color: black;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: all 1s linear;
+  transition: all 1s linear;
+}
+
+.meniu li:hover > div:first-child, .meniu li:hover > a {
+  background-color: #192b39;
+  color: #ebf0f3;
+}
+
+.meniu li:hover > ul {
+  display: block;
+  position: absolute;
+  z-index: 100;
+  -webkit-transform-origin: center top;
+          transform-origin: center top;
+  -webkit-animation: animatie_submeniu 1s linear 1 forwards;
+          animation: animatie_submeniu 1s linear 1 forwards;
+}
+
+@-webkit-keyframes animatie_submeniu {
+  0% {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+  100% {
+    opacity: 1s;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+
+@keyframes animatie_submeniu {
+  0% {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+  100% {
+    opacity: 1s;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+
+.Text-suprapus {
+  overflow: hidden;
+  position: relative;
+}
+
+.Text-suprapus > * {
+  position: absolute;
+  top: 0;
+}
+
+.Text-suprapus div:nth-child(2) {
+  background: none;
+  display: none;
+  opacity: 0.5;
+  background-color: none;
+  top: -20px;
+}
+
+.Text-suprapus:hover div:nth-child(2) {
+  display: block;
+  color: #ebf0f3;
+  -webkit-animation: text-dispare 1s linear 1 forwards;
+          animation: text-dispare 1s linear 1 forwards;
+}
+
+@-webkit-keyframes text-dispare {
+  100% {
+    opacity: 0.4s;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+}
+
+@keyframes text-dispare {
+  100% {
+    opacity: 0.4s;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+}
+/*# sourceMappingURL=nav.css.map */

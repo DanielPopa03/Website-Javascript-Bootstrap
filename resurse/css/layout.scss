@@ -1,0 +1,115 @@
+@import "./variabile";
+html{
+    font-size: 18px;
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+#grid-pagina{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "welcome welcome welcome welcome"
+                         "calendar-evenimente tabel tabel anunturi"
+                         "produse produse produse produse"
+                         "date-site-server date-site-server  utilizatori-online date-utilizatori-statistici";
+    >*{ 
+    border: 2px solid skyblue;
+    padding: 1em;
+     } 
+    >figure{ 
+        margin: 0;
+     }                    
+}
+
+
+#welcome{
+    grid-area: welcome;
+}
+
+#anunturi{
+    grid-area: anunturi;
+}
+ 
+#calendar-evenimente{
+    grid-area: calendar-evenimente;
+}
+
+.scroll-container{
+    grid-area: tabel;
+}
+
+#date-site-server{
+    grid-area: date-site-server;
+}
+
+#utilizatori-online{
+    grid-area: utilizatori-online;
+}
+
+#date-utilizatori-statistici{
+    grid-area: date-utilizatori-statistici;
+}
+
+#produse{
+    grid-area: produse;
+}
+#intrebari{
+    grid-area: intrebari;
+}
+
+.intro-oferte{
+    font-size: 1.5rem;
+}
+
+.imagine{
+    width: 50%;
+    > * {
+        max-width: 100%;
+        height: auto; 
+    }
+}
+
+@media screen  and (max-width:1200px){
+    html{
+        font-size: 15px;
+        font-family: "PT Serif", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    #grid-pagina{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "welcome welcome" 
+                             "welcome welcome"
+                             "calendar-evenimente tabel "
+                             "tabel anunturi"
+                             "produse produse "
+                             "produse produse"
+                             "date-site-server date-site-server " 
+                             "utilizatori-online date-utilizatori-statistici";
+    }
+    .scroll-container{
+        overflow-x: scroll;
+    }
+    
+}
+
+
+@media screen  and (max-width:800px){
+    html{
+        font-size: 12px;
+        font-family: "PT Serif", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    #grid-pagina{
+       display: block;
+    }
+    .scroll-container{
+        overflow-x: scroll;
+    }
+    #triunghi{
+        font-size: x-large;
+    }
+}

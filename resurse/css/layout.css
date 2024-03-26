@@ -1,0 +1,128 @@
+html {
+  font-size: 18px;
+  font-family: "PT Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#grid-pagina {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas: "welcome welcome welcome welcome" "calendar-evenimente tabel tabel anunturi" "produse produse produse produse" "date-site-server date-site-server  utilizatori-online date-utilizatori-statistici";
+}
+
+#grid-pagina > * {
+  border: 2px solid skyblue;
+  padding: 1em;
+}
+
+#grid-pagina > figure {
+  margin: 0;
+}
+
+#welcome {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: welcome;
+}
+
+#anunturi {
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+  grid-area: anunturi;
+}
+
+#calendar-evenimente {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: calendar-evenimente;
+}
+
+.scroll-container {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: tabel;
+}
+
+#date-site-server {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: date-site-server;
+}
+
+#utilizatori-online {
+  -ms-grid-row: 4;
+  -ms-grid-column: 3;
+  grid-area: utilizatori-online;
+}
+
+#date-utilizatori-statistici {
+  -ms-grid-row: 4;
+  -ms-grid-column: 4;
+  grid-area: date-utilizatori-statistici;
+}
+
+#produse {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: produse;
+}
+
+#intrebari {
+  grid-area: intrebari;
+}
+
+.intro-oferte {
+  font-size: 1.5rem;
+}
+
+.imagine {
+  width: 50%;
+}
+
+.imagine > * {
+  max-width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 15px;
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  #grid-pagina {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "welcome welcome"  "welcome welcome" "calendar-evenimente tabel " "tabel anunturi" "produse produse " "produse produse" "date-site-server date-site-server "  "utilizatori-online date-utilizatori-statistici";
+  }
+  .scroll-container {
+    overflow-x: scroll;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  html {
+    font-size: 12px;
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  #grid-pagina {
+    display: block;
+  }
+  .scroll-container {
+    overflow-x: scroll;
+  }
+  #triunghi {
+    font-size: x-large;
+  }
+}
+/*# sourceMappingURL=layout.css.map */

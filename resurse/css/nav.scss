@@ -1,0 +1,111 @@
+@import "./variabile";
+
+nav{
+    height: $inaltime-meniu;
+    background-color: $albastru-deschis;
+}
+
+#hamburger{
+    display: none;
+}
+
+#ch-menu{
+    display: none;
+    
+}
+
+.meniu{
+    position: relative;
+    display: flex;
+    text-align: center;
+    list-style-type: none;
+    padding: 0;
+    background-color: $albastru-deschis;
+    ul{
+        display: none;
+        opacity:1s;
+        transform: scaleY(1);
+        list-style-type: none;
+        padding: 0;
+        background-color: $albastru-deschis;
+    }
+    li{
+        border:1px solid $albastru-inchis;
+        width: $latime-buton;
+        height: $inaltime-meniu;
+        div, a {
+            list-style-type: none;
+            display: block;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            line-height: $inaltime-meniu;
+            color:black;
+            text-decoration: none;
+            box-sizing: border-box;
+            transition: all 1s linear;
+        }
+        &:hover{
+            >div:first-child,>a{
+                background-color: $albastru-inchis;
+                color:$alb;
+            }
+            >ul{
+                display:block;
+                position: absolute;
+                z-index: 100;
+                transform-origin: center top;
+                animation: animatie_submeniu 1s linear 1 forwards;
+            }
+        }
+    }
+    
+}
+@keyframes animatie_submeniu{
+    0%{
+        transform: scaleY(0);
+    }
+    100%{
+        opacity:1s;
+        transform: scaleY(1);
+    }
+
+
+}
+
+
+
+
+.Text-suprapus{
+    overflow: hidden;
+    position: relative;
+     >*{
+        position: absolute;
+        top:0;
+    
+    }
+    div:nth-child(2){
+        background: none;
+        display: none;
+        opacity: 0.5;
+        background-color: none;
+        top:-20px;
+    }
+
+    &:hover{
+        div:nth-child(2){
+            display: block;
+            color: $alb;
+            animation: text-dispare 1s linear 1 forwards;
+        }
+    }
+ }
+ 
+@keyframes text-dispare{
+    100%{
+        opacity:0.4s ;
+        transform: translateY(20px);
+    }
+
+
+}
