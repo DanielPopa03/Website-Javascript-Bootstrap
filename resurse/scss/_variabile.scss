@@ -1,0 +1,52 @@
+$albastru-deschis:#35637d ;
+$albastru-inchis:#192b39 ;
+$alb:#ebf0f3;
+
+$negru:#00000000;
+$gri:#2a2a2afa;
+$gri2:#201f1ffa;
+
+$orange-pr:#F2761F;
+$orange-s:#F2B41F;
+$orange-back:#F2B41F;
+
+$inaltime-meniu : 2.5em;
+$latime-buton : 150px;
+
+:root {
+    --albastru-deschis: #35637d;
+    --albastru-inchis: #192b39;
+    --alb: #ebf0f3;
+
+    --negru: #00000000;
+    --gri: #2a2a2afa;
+    --gri2: #201f1ffa;
+
+    --orange-pr: #F2761F;
+    --orange-s: #F2B41F;
+    --orange-back: #F2B41F;
+
+    --inaltime-meniu: 2.5em;
+    --latime-buton: 150px;
+}
+
+
+body {
+    --primary: var(--albastru-deschis);
+    --secondary: var(--albastru-inchis);
+    --background-color: var(--alb);
+}
+
+body.orange-theme {
+    --primary: var(--orange-pr);
+    --secondary: var(--orange-s);
+    --background-color: var(--orange-back);
+}
+
+/* Dark theme styles */
+body.dark-theme {
+    --primary: var(--gri);
+    --secondary: var(--gri2);
+    --background-color: var(--negru);
+    --text-colour: var(--alb);
+}

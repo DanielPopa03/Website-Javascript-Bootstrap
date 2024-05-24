@@ -1,0 +1,396 @@
+@import "./variabile";
+
+//---switch teme  
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .wrapper {
+    width: 300px;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+  }
+  
+  #custom-toggle {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 40px;
+    width: 120px;
+    background-color: #484848;
+    -webkit-border-radius: 25px;
+    border-radius: 25px;
+    padding: 0 2px;
+    margin: 0;
+    cursor: pointer;
+  }
+  #custom-toggle.tgl-def::-webkit-slider-thumb {
+    // background-color: white;
+    background-image: url('../imagini/teme/soare.png');
+  }
+  #custom-toggle.tgl-on::-webkit-slider-thumb {
+    // background-color: orange;
+    background-image: url('../imagini/teme/orange.png');
+  }
+  #custom-toggle.tgl-off::-webkit-slider-thumb {
+    // background-color: black;
+    background-image: url('../imagini/teme/moon.png');
+  }
+  #custom-toggle::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    background-image: url('../imagini/teme/dap.png');
+    
+  }
+  #custom-toggle:focus {
+    outline: none;
+  }
+  
+  .rangeActive {
+    background-color: green;
+  }
+  //-------
+#test{
+    position: relative;
+}
+
+#text, #text-reflectat{
+	font-size:50px;
+	line-height:50px;
+	font-weight: bold;
+   
+   
+}
+
+#text:hover {
+  color: var(--primary); /* Change to desired color */
+   
+}
+
+
+#text-reflectat{
+	position: absolute;
+	transform-origin: top right;
+    width: 100%;
+    transform: rotateY(-25deg) rotateZ(40deg) skew(10deg) scaleX(-1) translate(35px, -35px)
+}
+
+#text{	
+    width: 15%;
+    transform-origin: left center;
+  transform: rotateY(60deg) rotateZ(-20deg) skew(10deg) ;
+}
+
+
+
+#duotone {
+    position: relative;
+    background-image: url("http://irinaciocan.ro/imagini/plante.jpg");
+    background-size: cover;
+    width: 500px;
+    height: 500px;
+    filter: brightness(200%) grayscale(0);
+    transition: all 2s linear;
+
+    &:after,
+    &:before {
+        content: " ";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        transition: all 2s linear;
+    }
+
+    &:after {
+        background-color: rgb(0, 0, 255);
+        mix-blend-mode: lighten;
+    }
+
+    &:hover::before { // Apply hover effect to the ::before pseudo-element
+        background-color: transparent; // Change background color to transparent on hover
+    }
+
+    &:before {
+        background-color: rgb(205, 0, 255);
+        mix-blend-mode: darken;
+    }
+}
+
+
+
+
+
+hr{
+    margin: none;
+    opacity: 1;
+    
+    border: none;
+    height: 10px; 
+    background-image:  linear-gradient(60deg, var(--primary) ,var(--primary) 30%, transparent 30%,
+     transparent 40%, var(--primary) 40%, var(--primary) 60%, transparent 60%, transparent 70%, var(--primary) 70%);
+}
+
+#video-vtt {
+    width: 100%;
+    min-width: 300px;
+    max-width: 800px;
+  
+    /* Style pentru textul VTT */
+    &::cue {
+        background-image: linear-gradient(to bottom, red, blue); /* Gradient de la o culoare închisă la alta */
+        color: transparent; /* Textul este făcut transparent */
+        -webkit-background-clip: text; /* Setarea background-clip pentru WebKit */
+        background-clip: text; /* Setarea background-clip pentru toate browserele */
+        display: block;
+        white-space: pre-line; /* Textul este afișat pe 2 rânduri */
+    }
+}
+
+  
+
+footer a{
+    color: $albastru-inchis;
+    transition: all 1s linear;
+    transition: all 1s linear ;
+    background-image: radial-gradient(#00FFFF 15%, #00FFFE 25%, transparent 60%); /* Set initial background size */
+    background-position: center center; 
+    background-size: 0;
+    background-repeat: no-repeat;
+    &:hover{ 
+        background-size: 100%;
+        transition: background-size 1s ease-in-out;
+    }
+}
+
+
+footer a[href^="http"]{
+    &:hover{
+        &::before{
+            color:red;
+        }
+    }
+
+    &::before{
+    content: "⮳";
+    font-size: 150%;
+    }
+}
+
+
+
+h1{
+    display: none;
+}
+
+#link-top{
+    position:fixed;
+    bottom:0.3em;
+    opacity:0.5;
+    left:0.3em;
+    width:3rem;
+    text-decoration: none;
+    box-sizing: border-box;
+    height:3rem;
+    line-height:3rem;
+    text-align:center;
+    border:5px solid var(--secondary);
+    border-radius: 50%;
+    background: var(--backgroud-colour);
+    transition: all 1s linear;
+    &:hover{
+        opacity:1;
+        box-shadow: 0px 0px 15px ;
+    }
+}
+
+
+#triunghi{
+    color:var(--secondary);
+    font-size: xx-large;
+    vertical-align: top;
+    transform: translateY(-12.5%);
+    scale: 1.25;
+    
+}
+
+#iframe{
+  display: flex;
+  
+  >div{   
+        >a{
+            box-sizing: content-box;
+            padding-left: 1rem;
+            width: 6rem;
+            height: 2rem;
+            background: var(--backgroud-colour);
+            text-decoration: none;
+            color: var(--secondary);
+            border: 3.5px solid var(--secondary);
+            border-style: double;
+            border-left: transparent;
+            border-radius: 0% 10% 10% 0%;
+            overflow: hidden;
+            font-size: 15px;
+            display: block;
+            transition: all 0.3s linear;
+
+            &:hover{
+                transform-origin:bottom left;
+                transform: scaleX(1.2) translateX(0.01);
+                padding-left: 1.5rem;
+                opacity: 0.8;
+            }
+        }
+  }
+ 
+  >iframe{
+    border-bottom: 0.4rem solid var(--primary);
+    border-left: 0.4rem solid var(--secondary);
+    border-right: 0.4rem solid var(--primary);
+    border-top: 0.4rem solid var(--secondary);
+  }
+}
+
+
+#tabel{
+    border-collapse: collapse;
+    width: 100%;
+    border: 5px double black;
+    transition: all 1/3s linear;
+    td, th{
+        border: 1px solid black;
+    }
+
+    thead{
+        tr{
+            color: var(--primary);
+        }
+    }
+
+    tbody{
+        tr{
+            &:nth-child(odd){
+                color:var(--secondary);
+            }
+
+            &:nth-child(even){
+                color:var(--primary);
+            }
+        }
+    }
+
+    tr{
+        
+        &:hover{
+            background-color: #ffcc00; 
+            color: white; 
+            border-width: 5px; 
+        }
+    }
+}
+
+#watermark{
+    display: none;
+}
+
+@media print{
+    img, video, #iframe, embed, object, figcaption, #link-top, iframe {
+        display: none;
+    }
+    
+    a{
+      text-decoration: none;
+      color: black;
+    }
+
+    nav{
+		text-align: center;
+        justify-content: center;
+		position: absolute;
+		font-size:10px;
+        top: 90%;
+		left: 5%;
+		width:70%;
+		height:35px;
+		display: inline-block;
+        .meniu{
+    
+            list-style-type: none;
+            background-color: var(--primary);
+            ul{
+                display: block;
+                list-style-type: none;
+                
+            }
+        }
+	}
+
+    #grid-pagina{
+        display: block;
+		font-size: 10px;
+		box-sizing:border-box;
+		page-break-before:always;
+		background-color: var(--backgroud-colour);
+		display:block;
+		}
+		html, body {
+        width: 210mm;
+        /* height: 297mm; */
+        /*height: 282mm;*/
+				overflow:visible !important;
+		}
+	
+	h1{
+        display: block;
+		page-break-after: always;
+		margin-top: 50%;
+		text-align:center;
+		margin-left:1cm;
+	}
+    
+    #watermark{
+        text-align: center;
+        opacity:0.4;
+        padding:5px;
+        display: block;
+        position: fixed;
+        background: white;
+        border:2px solid black;
+        border-radius: 5px 5px 5px 5px;
+        bottom:0;
+        color:rgba(0,0,0,0.4);
+        right:0;
+        
+    }
+    
+}
+
+
+
+@page {
+    size: A4 portrait;
+    margin-bottom: 2cm;
+    margin-top: 2cm;
+    counter-increment: page;
+
+    :left {
+        margin-left: 2cm;
+        margin-right: 1cm;
+        border-radius: 20cm;
+    }
+
+    :right {
+        margin-right: 2cm;
+        margin-left: 1cm;
+    }
+}
+
+

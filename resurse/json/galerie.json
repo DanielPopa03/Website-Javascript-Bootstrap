@@ -1,0 +1,69 @@
+{
+	"cale_galerie":"resurse/imagini/galerie",
+	"imagini": [
+		{
+			"cale_imagine":"poza1.png",
+			"titlu":"Arnold",
+			"descriere":"Arnold pe vas",
+			"timp":"09:00-22:00"
+		},
+		{
+			"cale_imagine": "poza2.png",
+			"titlu": "Biceps",
+			"descriere": "Exercitiu de flexie",
+			"timp": "09:00-22:00"
+		},
+		{
+			"cale_imagine": "poza3.png",
+			"titlu": "Ziua de piept",
+			"descriere": "Impins la piept",
+			"timp": "09:00-22:00"
+		},
+		{
+			"cale_imagine": "poza4.png",
+			"titlu": "Antrenor Personal",
+			"descriere": "Sesiune de antrenament cu un antrenor personal",
+			"timp": "09:00-22:00"
+		},
+		{
+			"cale_imagine": "poza5.png",
+			"titlu": "Indreptari",
+			"descriere": "Indreptari cu forma buna",
+			"timp": "09:00-22:00"
+		},
+		{
+			"cale_imagine": "poza6.png",
+			"titlu": "exercitiu",
+			"descriere": "Antrenament antrebrat",
+			"timp": "09:00-22:00"
+		},
+		{
+			"cale_imagine": "poza7.png",
+			"titlu": "Gantere",
+			"descriere": "Gantere de 5kg pe parchet",
+			"timp": "09:00-22:00"
+		},
+		{
+			"cale_imagine": "poza8.png",
+			"titlu": "Poza artistica",
+			"descriere": "Poza artistica exercitiu biceps",
+			"timp": "09:00-22:00"
+		},
+		{
+			"cale_imagine": "poza10.png",
+			"titlu": "The gym",
+			"descriere": "Tort ecial",
+			"timp": "09:00-22:00",
+			"autor":"Chun Kit To",
+			"sursa":"https://www.flickr.com/photos/10597986@N03/1422691300"
+		},
+		{
+			"cale_imagine": "poza9.png",
+			"titlu": "The Gym",
+			"descriere": "Poza facuta in 2007",
+			"timp": "09:00-22:00",
+			"autor":"rick",
+			"sursa":"https://www.flickr.com/photos/35034361412@N01/546150140"
+		}
+	]
+}

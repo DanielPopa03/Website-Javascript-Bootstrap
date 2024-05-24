@@ -1,0 +1,34 @@
+
+@use '../node_modules/bootstrap/scss/bootstrap.scss' with (
+    $primary:  #35637d,
+    $secondary: #192b39 
+    
+    // Add other variables as needed
+);
+
+// Definim dimensiunile de ecran diferite pentru ecrane medii și mari
+$screen-md: 768px; // Dimensiunea ecranului mediu
+$screen-lg: 992px; // Dimensiunea ecranului mare
+
+// Definim dimensiunea razelor de border
+// Variabile pentru border
+$border-radius: 8px;
+$border-width: 5px;
+
+
+// Definim dimensiunea literelor pentru heading-uri
+$h1-font-size: 36px; 
+$h2-font-size: 30px; 
+$h3-font-size: 24px; 
+$h4-font-size: 18px; 
+$h5-font-size: 16px; 
+$h6-font-size: 14px; 
+
+// Definim familia de font implicită
+$body-font-family: Arial, sans-serif; // Familia de font implicită pentru textul principal
+
+// Alte variabile personalizate
+$custom-variable: value;
+$range-thumb-size: 1.5em;
+
+

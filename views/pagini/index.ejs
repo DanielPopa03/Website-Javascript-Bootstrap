@@ -5,7 +5,7 @@
 <html>
     <head lang="ro">
     <%- include("../fragmente/head.ejs")%>    
-        
+       
 
 <meta name="keywords" content="culturism, sala, proteine, shakere, vitamine, gainere, curele culturism, echipamente sportive">
 <meta name="description" content="As-teroizi: Descoperă potențialul maxim al antrenamentului tău! Echipează-te cu cele mai avansate suplimente și accesorii pentru culturism.
@@ -15,9 +15,35 @@ Nu te mulțumi cu mai puțin! Alege As-teroizi și atinge nivelul următor al pe
 
     <body>
        <%- include("../fragmente/header.ejs") %>
- 
+       
         <main>
+          
+            <div class="wrapper">
+                <input type="range" name="points" min="1" step="1" id="custom-toggle" class="tgl-def" max="3" value="2" onchange="updateTheme(this)">
+
+            </div>
             
+            <%- include("../fragmente/formular-login.ejs") 
+                %>
+            <br/>
+            <video id="video-vtt" controls preload="auto" poster="./resurse/imagini/poster.png">
+                <source src="./resurse/video/video.mp4" type="video/mp4">
+                <source src="./resurse/video/video.ogv" type="video/ogv">
+                <track default src="./resurse/video/subtritari/sub.vtt" kind="captions" srclang="ro" label="romana" />
+                <track src="sub.vtt" kind="captions" srclang="en" label="english">
+              </video>
+              <hr>
+              <div id="duotone"></div>
+              <hr>
+              <div id="test">
+                <div id="text">Un text
+                    <div id="text-reflectat">
+                        Un text
+                    </div>
+                </div>
+                
+              </div>
+              <hr>
             <div id = "grid-pagina">
                 
                 <!--
@@ -43,7 +69,7 @@ Nu te mulțumi cu mai puțin! Alege As-teroizi și atinge nivelul următor al pe
                     <h2>Bine ați venit pe As-teroizi!</h2>
                     <p class="intro-oferte">
                         Destinația ta online pentru <b>suplimente</b> și <b>echipamente de culturism</b>! Suntem încântați să vă primim în comunitatea noastră dedicată pasionaților de fitness și culturism.
-                        <br>
+                       
                         La As-teroizi, ne dedicăm să îți oferim cele mai bune produse pentru a-ți atinge obiectivele de fitness. Indiferent dacă ești un începător entuziast sau un atlet experimentat, avem tot ceea ce îți trebuie pentru a-ți optimiza antrenamentele și pentru a-ți maximiza rezultatele.   
                     </p>
 
@@ -67,6 +93,7 @@ Nu te mulțumi cu mai puțin! Alege As-teroizi și atinge nivelul următor al pe
                 </section>
 
                 <section id = "calendar-evenimente">
+                    
                     <p>Proin leo nunc, feugiat ut nibh ut, tincidunt molestie purus. Ut interdum ante eget augue iaculis, sit amet faucibus tortor gravida. Proin lobortis ex ac turpis feugiat, vel interdum arcu pretium. Maecenas dapibus lobortis placerat. Duis vel velit luctus, pretium massa sit amet, euismod turpis. In sollicitudin arcu massa, id semper massa interdum sit amet. Nulla vulputate sed nibh sed efficitur. Proin vel lectus ligula. Pellentesque tempor nibh sed nunc dapibus euismod eu sit amet lectus. Maecenas lectus nisl, laoreet ut tempor non, viverra ut quam. Proin a urna quis enim commodo varius.</p>
                 </section>
                 
@@ -150,7 +177,7 @@ Nu te mulțumi cu mai puțin! Alege As-teroizi și atinge nivelul următor al pe
          </div> 
          <p id="absolut" >Acesta este un proiect scolar</p>    
         </main>
-
+        <script type="text/javascript" src=/resurse/js/teme.js></script> 
         <%- include("../fragmente/footer.ejs") %>
     </body>
 </html>

@@ -1,38 +1,49 @@
 <header>
             <h1>As-teroizi</h1>
             <p id="watermark">Popa <br> Robert-Daniel </p>
-            <img src = "./resurse/imagini/Logo.jpg" width="200" height="200">
+            <img src = "/resurse/imagini/Logo.jpg" width="200" height="200">
             <nav>
                 <label id="hamburger" for="ch-menu">
-                    <img  id ="poza-Hamburger" src="resurse/imagini/Hamburger_icon.png" alt="menu">
-                    <div id = "bara-hamburger-1"></div>
-                    <div id = "bara-hamburger-2"></div>
-                    <div id = "bara-hamburger-3"></div>
-                </label>
-                <input id="ch-menu" type="checkbox">
+                    <div id="container-hamburger">
+                     <div class = "bara-hamburger"></div>
+                     <div class = "bara-hamburger"></div>
+                     <div class = "bara-hamburger"></div>
+                     </div>
+                 </label>
+                 <input id="ch-menu" type="checkbox">
                 <ul class="meniu">
                     
                     <li class="Text-suprapus">
+                        <a href="/index" style="visibility: hidden; position: absolute;">To index</a>
                         <div id="acasa-mediu"><span class="fas fa-regular fa-house"></span><span id="acasa">Acasa</span></div>
-                        <div ><span class="fas fa-regular fa-house"></span><span id="acasa">Acasa</span></div>
+                        <div><span class="fas fa-regular fa-house"></span><span id="acasa">Acasa</span></div>
                         
                     </li>
                     <li class = "Text-suprapus">
+                        <a href="/index" style="visibility: hidden; position: absolute;">To index#orar</a>
                         <div >Orar</div>
                         <div >Orar</div>
                     </li>
-                    <li><a href="">Inregistrare</a>
+                    <li><a href="/produse">Inregistrare</a>
                         <ul>
-                            <li><a href="#welcome">Bine ați venit</a></li>
-                            <li><a href="#promo">Promoții</a></li>
+                            <li><a href="/despre">Despre</a></li>
+                          
                         </ul>
                     </li>
-                    <li><a href="">Produse</a>
+                    <li><a href="/produse">Produse</a>
                         <ul>
-                            <li><a href="#welcome">Bine ați venit</a></li>
-                            <li><a href="#promo">Promoții</a></li>
+                            <li><a href="/produse?categorie=proteine din zer">Proteine Din Zer</a></li>
+                            <li><a href="/produse?categorie=proteine vegane">Proteine Vegane</a></li>
+                            <li><a href="/produse?categorie=gainere">Gainere</a></li>
+                            <li><a href="/produse?categorie=vitamine">Vitamine</a></li>
+                            <li><a href="/produse?categorie=alta">Altele</a></li>
                         </ul>
+                    </li>
+                    <li>
+                        <%- include("submeniu-administrare.ejs") %>
+                        <%- include("submeniu-utilizator-logat.ejs") %>
                     </li>
                 </ul>
             </nav>
+            
         </header>
