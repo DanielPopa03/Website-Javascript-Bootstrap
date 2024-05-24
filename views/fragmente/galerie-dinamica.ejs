@@ -1,0 +1,31 @@
+<div id="container_animatie">            
+             
+    <div id="derulant">                
+        <%   
+            var i = 0;                  
+            let randomNumber = Math.floor(Math.random() * 5);
+            let numberOfPhotos = 1;
+            for(let i = 0; i < randomNumber; i++){
+                numberOfPhotos *= 2;
+            }   
+                        
+            for (let imag of locals.imagini) { 
+                if( numberOfPhotos==0)  break;                    
+                i += 1; 
+                if((i-1) % 2 == 0 ){  
+                numberOfPhotos -= 1;      
+                       
+        %>                           
+            <figure class ="boxy">                               
+                <picture >                                   
+                    <source srcset="<%= imag.fisier_mediu %>" media="(max-width:1200px)"/>                                   
+                    <img src="<%= imag.cale_imagine %>" alt="prajituri">                               
+                </picture>                                                       
+                <figcaption><%= imag.descriere %></figcaption>                            
+            </figure>                   
+        <%  
+                } 
+            } 
+        %>                        
+    </div>  
+</div>  

@@ -1,0 +1,36 @@
+<section id="galerie-statica">            
+    <h2>Galerie</h2>            
+    <div id="grid-galerie">                
+        <%   
+            var i = 0;                  
+            var d = new Date();                   
+            var oraCurenta = d.getHours();
+            var minuteCurente = d.getMinutes();  
+            var timpCurent  = new Date(0, 0, 0, oraCurenta, minuteCurente);                  
+            for (let imag of locals.imagini) {                       
+                var interval = imag.timp;
+                var times = interval.split("-");
+                var timeArrMin = times[0].split(":");
+                var hourMin = parseInt(timeArrMin[0], 10);
+                var minuteMin = parseInt(timeArrMin[1], 10);
+                var timeMin = new Date(0, 0, 0, hourMin, minuteMin);
+                var timeArrMax = times[1].split(":");
+                var hourMax = parseInt(timeArrMax[0], 10);
+                var minuteMax = parseInt(timeArrMax[1], 10);
+                var timeMax = new Date(0, 0, 0, hourMax, minuteMax);
+                if(timpCurent >= timeMin &&  timpCurent <= timeMax && i < 10){  
+                i += 1;                 
+        %>                           
+            <figure>                               
+                <picture >                                   
+                    <source srcset="<%= imag.fisier_mediu %>" media="(max-width:1200px)"/>                                   
+                    <img src="<%= imag.cale_imagine %>" alt="prajituri">                               
+                </picture>                                                       
+                <figcaption><%= imag.descriere %></figcaption>                            
+            </figure>                   
+        <%  
+                } 
+            } 
+        %>                        
+    </div>  
+</section>  

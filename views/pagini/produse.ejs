@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <%- include("../fragmente/head") %> 
+        <link rel="stylesheet" href="/resurse/css/produse.css" type = "text/css" >    
+        <script type="text/javascript" src=/resurse/js/produse.js></script>
+    </head>
+    <body>
+    <%- include("../fragmente/header") %>
+
+    <main>
+        <div class="container">  
+            <div class="row">
+        <div class="col form-floating">
+            <textarea class="form-control" placeholder=" " id="inp-nume"></textarea>
+            <label for="inp-nume" id="textarea-label">Nume produs:</label>
+            <div class="invalid-feedback">
+              Nu aveti voie sa introduceti numere
+            </div>
+        </div>
+       
+        <!-- <label for="inp-nume" class="form-label"> Nume: <input type="text" id="inp-nume" class="form-control"></label> -->
+        <!--<label> Maxim calorii: <input type="number" id="inp-calorii" value="10000"></label>-->
+        <div class="col"> 
+            Calorii:
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-outline-primary">
+                    <input type="radio" name="gr_rad" id="i_rad1" value="0:350"> Dietetic (calorii &lt; 350)
+                </label>
+                <label class="btn btn-outline-primary">
+                    <input type="radio" name="gr_rad" id="i_rad2" value="350:750"> Mediu (350 &le; calorii &lt; 700)
+                </label>
+                <label class="btn btn-outline-primary">
+                    <input type="radio" name="gr_rad" id="i_rad3" value="700:1000000000"> Ridicat caloric (700 &le; calorii)
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="gr_rad" id="i_rad4" value="toate" checked> Toate
+                </label>
+            </div>
+        </div>
+        
+        
+    </div>
+        
+        
+
+    <div class="row">
+        <label for="inp-pret" class="col form-label"> Pret minim: <input type="range" id="inp-pret" class="form-range" value="0" min="0"  max="70"> <span id="infoRange">(0)</span></label>
+        <br/>
+            <label for="inp-categorie" class="col form-label">Selecteaza categoria
+                <select id="inp-categorie" class="form-select">
+                    <option id="sel-toate" selected value="toate">toate</option>
+                    <% for (let opt of locals.optiuni) { %>
+                        <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                    <% } %>
+                </select>
+            </label>
+        
+        <label for="inp-brand" class="col form-label">Selecteaza brandul
+            <select multiple id="inp-brand" class="form-select">
+                <% for (let opt of locals.optiuni) { %>
+                    <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                <% } %>
+              </select>
+        </label>
+    </div>  
+    <div class="row">
+        <button id="filtrare" class="col btn btn-primary">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
+                    <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z"/>
+                    <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0"/>
+                </svg>
+                <div>Filtreaza</div>
+            </span>
+        </button> 
+    
+
+        <button id="resetare" class="col btn btn-danger">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+                </svg>
+                <div>Reseteaza</div>
+            </span>
+        </button>
+        <br/>
+    </div>  
+    <div class="row">
+        <button id="sortCrescNume" class="col btn btn-primary">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
+                </svg>
+                <div>Sorteaza crescator dupa pret si nume</div>
+            </span>
+        </button>
+        <button id="sortDescrescNume" class="col btn btn-primary">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1"/>
+                </svg>
+                <div>Sorteaza descrescator dupa pret si nume</div>
+            </span>
+        </button>
+        
+    </div>    
+      
+    <div class="row">
+
+        <div class="col form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="inp-diabetici">
+            <label class="form-check-label" for="inp-diabetici">Pentru Diabetici</label>
+        </div>
+        
+        <p id="p-suma" class="col">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
+    </div>
+</div>  
+        <section id="produse">
+            <h2>Produse</h2>
+            <div class="grid-produse">
+                
+                <% for( let prod of locals.produse) { %>
+                    <article class="produs" >
+                        <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
+                        <div class="info-prod">
+                            <p class="pret">Pret: <span class="val-pret"><%- prod.pret%></span></p>
+                            <p class="calorii">Calorii: <span class="val-calorii"><%- prod.calorii%></span></p>
+                            <p class="gramaj">Gramaj: <span class="val-gramaj"><%- prod.gramaj%></span></p>
+                        </div>
+                        <p class="categorie">Categorie:<span class="val-categorie"><%- prod.categorie%></span></p>
+                        <figure>
+                            <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
+                        </figure>
+                        <label class="selecteaza-cos">
+                            Selectează:<br/>
+                            <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                        </label>
+                    </article>
+                <% }%>
+            </div>
+        </section>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+    </body>
+</html>
