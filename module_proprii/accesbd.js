@@ -26,11 +26,6 @@ class AccesBD{
             password:"123456", 
             host:"localhost", 
             port:5432});
-        // this.client2= new Pool({database:"laborator",
-        //         user:"irina", 
-        //         password:"irina", 
-        //         host:"localhost", 
-        //         port:5432});
         this.client.connect();
     }
 

@@ -387,7 +387,7 @@ app.get('/getOferte', (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
         return;
       }
-      // Parse the JSON data and send it as response
+      //console.log(data)
       res.json(JSON.parse(data));
     });
   });

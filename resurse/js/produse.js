@@ -1,7 +1,61 @@
 let lastChecked;
 
 window.addEventListener("load",function(){
+//Bonus afisare produs pret minim pe categorie
+function getMinim() {
+   console.log("getMin")
+    document.querySelectorAll('.produs.red-aura').forEach(item => item.classList.remove('red-aura'));
+
+    let produs = document.querySelectorAll('.produs');
+    let minPrices = {}; // Use an object for faster lookups
+
+   
+    produs.forEach((item, index) => {
+        let categorie = item.querySelector('.val-categorie').textContent.trim();
+        let pret = parseFloat(item.querySelector('.val-pret').textContent.trim());
+
+        // Update the minimum price for the category
+        if (!minPrices[categorie] || pret < minPrices[categorie].pret) {
+            minPrices[categorie] = { index: index, pret: pret };
+        }
+    });
+
+    // Apply "red-aura" class to the products with the minimum price in their category
+    Object.values(minPrices).forEach(min => {
+        produs[min.index].classList.add('red-aura');
+    });
+}
+
+getMinim();
+
+//Cerinta Individuala Etapa 7
+    function startProdusAnimation(){
+       let produs  = document.getElementsByClassName("produs");
+       let i = 0
+       let length = produs.length
+       function addProdusAnimation(){
+         if(i < length){
+            //console.log(produs[i])
+            produs[i].classList.add("animationProdus")
+            i += 1;
+            setTimeout(addProdusAnimation, 1000)
+         }
+        else{
+            for(let j = 0 ; j <length; j++){
+                produs[j].classList.remove("animationProdus")
+            }
+        }
+       }
+        addProdusAnimation()
+    }
+    startProdusAnimation()
+
+
+
 //Bonus Oferta
+
+
+
     function parseDate(dateString) {
         var [datePart, timePart] = dateString.split(", "); // Splitting date and time parts
         var [datePartSplit, ampm] = datePart.split(" "); // Splitting date and AM/PM parts
@@ -54,18 +108,19 @@ window.addEventListener("load",function(){
         
     // }
     function startTemporizator(element, endTime) {
-        console.log("HELLO THERE")
+        
         function updateTemporizator(element, endTime) {
             
             let data = new Date();
             let now = parseDate(data.toLocaleString());
             let timeRemaining = Math.max((endTime - now) / 1000, 0);
-            console.log(timeRemaining)
+            
             let hours = Math.floor(timeRemaining / 3600);
             let minutes = Math.floor((timeRemaining % 3600) / 60);
             let seconds = Math.floor(timeRemaining % 60);
     
             element.textContent = `${hours}h ${minutes}m ${seconds}s`;
+            
             
             if (timeRemaining <= 10) {
                 element.style.color = 'red';
@@ -76,7 +131,16 @@ window.addEventListener("load",function(){
             if (timeRemaining > 0) {
                 setTimeout(()=>{updateTemporizator(element, endTime)}, 1000);
             }else{
-                element.parentElement.remove();
+               let pret = element.parentElement.nextElementSibling.querySelector(".pret");
+               let firstSpanText = pret.querySelector('span').textContent;
+               let spansWithoutClass = document.querySelectorAll('span:not([class])');
+                spansWithoutClass.forEach(function(span) {
+                    span.parentNode.removeChild(span);
+                });
+               let valPret = pret.querySelector(".val-pret")
+               valPret.textContent = firstSpanText
+               element.parentElement.remove();
+
             }
         }
         updateTemporizator(element, endTime)
@@ -104,7 +168,7 @@ window.addEventListener("load",function(){
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            console.log(response.json())
+            // console.log(response.json())
             return response; // Parse the JSON response
             })
             .then(newOffer => {
@@ -119,8 +183,8 @@ window.addEventListener("load",function(){
   
     }
     async function loadOferte(produse){
-        
-        generateOferte();
+        console.log("Load Oferta")
+        await generateOferte();
         let oferte;
         await fetch('/getOferte')
         .then(response => {
@@ -141,8 +205,8 @@ window.addEventListener("load",function(){
                  let dataMin = parseDate(oferte[i].data_incepere);
                  let dataMax = parseDate(oferte[i].data_finalizare);
                  
-
-
+                console.log(oferte[i].categorie)
+                console.log(dataCurenta >= dataMin && dataCurenta <= dataMax)
                  if(dataCurenta >= dataMin && dataCurenta <= dataMax){
                     
                     for (let j = 0; j < produse.length; j++) {
@@ -150,17 +214,24 @@ window.addEventListener("load",function(){
                         var valCategorie = produs.querySelector('.val-categorie').textContent;
                         var valPret = produs.querySelector('.val-pret').textContent;
                         // Output the content of the <span> element
-                        console.log(valCategorie, oferte[i].categorie)
+                        // console.log(valCategorie, oferte[i].categorie)
                         if (valCategorie == oferte[i].categorie) {
-                            console.log("ACUM DE CE NU MERGE")
+                           
                             var paragraphElement = document.createElement("p");
-                            paragraphElement.textContent = "Oferta";
-                            let del = document.createElement("s");
-                            del.textContent = produs.querySelector('.val-pret').textContent
-                            console.log(del.textContent)
-                            produs.querySelector('.val-pret').appendChild(del)
-                            produs.querySelector('.val-pret').textContent = `${valPret * (1 - oferte[i].reducere/100)}` + " "+ `${oferte[i].reducere}%`;
-                            console.log("Content of the span with class 'val-categorie':", valCategorie);
+                            paragraphElement.textContent = "Oferta ";
+                            const spanElement = document.createElement('span');
+                            const spanElement2 = document.createElement('span');
+                            // Set the text content of the span
+                            spanElement.textContent = `${produs.querySelector('.val-pret').textContent}`;
+                            spanElement2.textContent =   " "+`${oferte[i].reducere}%` + " ";
+                            spanElement.style.textDecoration = "line-through";
+                            
+                            
+                            let aux = produs.querySelector('.val-pret')
+                            console.log(aux.parentNode.insertBefore(spanElement, aux), aux.parentNode.insertBefore(spanElement2, aux),
+                            
+                            produs.querySelector('.val-pret').textContent = `${valPret * (1 - oferte[i].reducere/100)}` );
+                           
                             // Insert the <p> element before the target element
                             produs.parentNode.insertBefore(paragraphElement, produs);
                             // Adaugă temporizatorul în elementul <p>
@@ -174,7 +245,8 @@ window.addEventListener("load",function(){
                     }
                 
                 }
-        } 
+            } 
+            // getMinim();
         })
         .catch(error => console.error('Error fetching oferte:', error));
         
@@ -254,7 +326,7 @@ window.addEventListener("load",function(){
             }
             return semn*(pret_a-pret_b);
         })
-        console.log(v_produse)
+        
         for (let prod of v_produse){
             prod.parentNode.appendChild(prod)
         }
@@ -308,25 +380,28 @@ window.addEventListener("load",function(){
         if(button.checked) lastChecked = button;
         button.addEventListener('change', function() {
             if (this.checked) {
-                console.log('Button unchecked:', lastChecked.value);
+                // console.log('Button unchecked:', lastChecked.value);
                 lastChecked.parentElement.classList.remove("btn-primary")
                 lastChecked.parentElement.classList.add("btn-outline-primary")
                 button.parentElement.classList.remove("btn-outline-primary")
                 button.parentElement.classList.add("btn-primary")
                 lastChecked = button;
-                console.log('Button checked:', this.value);
+                // console.log('Button checked:', this.value);
 
             } else {
-                console.log('Button unchecked:', input.value);
+                // console.log('Button unchecked:', input.value);
                
             }
         });
     })
+
+
+
 })
 
 window.onkeydown = function(e){
     if(e.key == "c" && e.altKey){
-        console.log("ghedwl")
+        // console.log("ghedwl")
         let suma = 0;
         var produse = document.getElementsByClassName("produs");
         for(let produs of produse){
@@ -336,7 +411,7 @@ window.onkeydown = function(e){
             }
         }
         if(document.getElementById("produse")){
-            console.log("ghedwl")
+            // console.log("ghedwl")
             let p = document.createElement("p");
             p.innerHTML = suma;
             p.id = "par_suma";
@@ -350,3 +425,4 @@ window.onkeydown = function(e){
         }
     }
 }
+

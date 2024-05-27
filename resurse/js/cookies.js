@@ -10,8 +10,11 @@ function setCookie(nume, val, timpExpirare){//timpExpirare in milisecunde
 function getCookie(nume){
     vectorParametri=document.cookie.split(";") // ["a=10","b=ceva"]
     for(let param of vectorParametri){
-        if (param.trim().startsWith(nume+"="))
+        if (param.trim().startsWith(nume+"=")){
+            
             return param.split("=")[1]
+        }
+            
     }
     return null;
 }
@@ -28,7 +31,7 @@ window.addEventListener("load", function(){
     }
 
     this.document.getElementById("ok_cookies").onclick=function(){
-        setCookie("acceptat_banner",true,60000);
+        setCookie("acceptat_banner",true,6000);
         document.getElementById("banner").style.display="none"
     }
 })

@@ -1,5 +1,6 @@
 
 @use '../node_modules/bootstrap/scss/bootstrap.scss' with (
+    
     $primary:  #35637d,
     $secondary: #192b39 
     
@@ -7,8 +8,8 @@
 );
 
 // Definim dimensiunile de ecran diferite pentru ecrane medii și mari
-$screen-md: 768px; // Dimensiunea ecranului mediu
-$screen-lg: 992px; // Dimensiunea ecranului mare
+$screen-md: 700px; // Dimensiunea ecranului mediu
+$screen-lg: 1000px; // Dimensiunea ecranului mare
 
 // Definim dimensiunea razelor de border
 // Variabile pentru border

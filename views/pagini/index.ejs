@@ -18,10 +18,7 @@ Nu te mulțumi cu mai puțin! Alege As-teroizi și atinge nivelul următor al pe
        
         <main>
           
-            <div class="wrapper">
-                <input type="range" name="points" min="1" step="1" id="custom-toggle" class="tgl-def" max="3" value="2" onchange="updateTheme(this)">
-
-            </div>
+            <%- include("../fragmente/themeSlider.ejs") %>
             
             <%- include("../fragmente/formular-login.ejs") 
                 %>
@@ -177,7 +174,7 @@ Nu te mulțumi cu mai puțin! Alege As-teroizi și atinge nivelul următor al pe
          </div> 
          <p id="absolut" >Acesta este un proiect scolar</p>    
         </main>
-        <script type="text/javascript" src=/resurse/js/teme.js></script> 
+        <script type="text/javascript" src=/resurse/js/cookieProdus.js></script>
         <%- include("../fragmente/footer.ejs") %>
     </body>
 </html>

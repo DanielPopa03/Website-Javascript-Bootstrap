@@ -9,6 +9,10 @@
     <%- include("../fragmente/header") %>
 
     <main>
+        
+        <%- include("../fragmente/themeSlider.ejs") %>
+
+
         <div class="container">  
             <div class="row">
         <div class="col form-floating">
@@ -119,8 +123,8 @@
 </div>  
         <section id="produse">
             <h2>Produse</h2>
-            <div class="grid-produse">
-                
+           <div class="grid-produse">
+                 <!-- 
                 <% for( let prod of locals.produse) { %>
                     <article class="produs" >
                         <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
@@ -138,9 +142,25 @@
                             <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
                         </label>
                     </article>
+                <% }%> -->
+                <% for( let prod of locals.produse) { %>
+                <div class="produs card" style="width: 18rem;">
+                    <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" class="card-img-top" alt="[imagine <%- prod.nume %>]" /></a>
+                    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+                    <h3 class="nume card-title">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
+                    <div class="info-prod card-body">
+                      <p class="pret card-text">Pret: <span class="val-pret"><%- prod.pret%></span></p>
+                      <p class="calorii card-text">Calorii: <span class="val-calorii"><%- prod.calorii%></span></p>
+                      <p class="gramaj card-text">Gramaj: <span class="val-gramaj"><%- prod.gramaj%></span></p>
+                      <p class="categorie card-text">Categorie:<span class="val-categorie"><%- prod.categorie%></span></p>
+                      <a href="/produs/<%-prod.id %>" class="card-link">Pagina Produs</a>
+                    </div>
+                </div>
                 <% }%>
+
             </div>
         </section>
+        
     </main>
 
     <%- include("../fragmente/footer") %>

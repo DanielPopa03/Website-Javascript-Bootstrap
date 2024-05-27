@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", function() {
     
     var numberOfBoxes = boxes.length;
     numberOfElements = numberOfBoxes;
-    console.log(galerieDinamica)
-    console.log(numberOfElements)
+    // console.log(galerieDinamica)
+    // console.log(numberOfElements)
     function startAnimation(box) {
       if(_index == 0)
       galerieDinamica.forEach(function(element) {

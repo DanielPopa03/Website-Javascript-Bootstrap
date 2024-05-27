@@ -45,4 +45,20 @@ $range-thumb-size: 1.5em; // 50% larger than the font-size
 
 
 
+@keyframes slideRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
 
+.animationProdus{
+    animation: slideRight 1s forwards;
+}
+
+.red-aura {
+    box-shadow: 0 0 15px 5px red; /* Creates a red glow effect */
+    border-radius: 10px; /* Optional: makes the corners rounded */
+}

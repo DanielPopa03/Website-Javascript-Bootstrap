@@ -33,6 +33,39 @@ body.dark-theme {
   --text-colour: var(--alb);
 }
 
+#banner {
+  position: fixed;
+  bottom: -100px; /* Start hidden below the screen */
+  left: 0;
+  width: 100%;
+  background-color: var(--background-color); /* Adjust according to your color scheme */
+  color: var(--primary); /* Initial text color */
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  animation: slideUpDown 3s forwards;
+}
+
+@media (max-width: 1000px) {
+  #banner {
+    bottom: 0; /* Align with the bottom of the screen */
+    animation: none; /* Disable the animation */
+  }
+}
+@keyframes slideUpDown {
+  0% {
+    bottom: -100px;
+    color: black;
+  }
+  50% {
+    bottom: 20px;
+    color: var(--secondary); /* Intermediate text color */
+  }
+  100% {
+    bottom: 0;
+    color: var(--primary); /* Final text color */
+  }
+}
 p {
   margin: 0;
   padding: 0;
